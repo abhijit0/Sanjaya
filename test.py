@@ -38,7 +38,7 @@ def predict_caption_image(model, w2i, i2w, image, n = 1, maxlen = 35):
             break
     return ' '.join([token for token in text.split() if token not in ('startseq', 'endseq')])
 
-def predict(model_path = './model_10.h5', data_path = './data/Flickr_Dataset/images/', encoding_path = 'test_images_encodings.pkl', test_size = 10):
+'''def predict(model_path = './model_10.h5', data_path = './data/Flickr_Dataset/images/', encoding_path = 'test_images_encodings.pkl', test_size = 10):
     #if(encoding_path not in os.listdir(os.getcwd())):
     model = load_model(model_path)
     w2i, i2w, _ = wti_itw(path = caption_token_path)
@@ -81,20 +81,9 @@ def predict(model_path = './model_10.h5', data_path = './data/Flickr_Dataset/ima
     for image in plot_images:
         cv2.imshow('images', image)
         cv2.waitKey(1000)
-    cv2.destroyAllWindows()
+    cv2.destroyAllWindows()'''
 
-def cap_similarity(cap1, cap2):
-    cap1_vector = nlp(cap1).vector
-    cap2_vector = nlp(cap2).vector
-    return cosine_similarity([cap1_vector, cap2_vector])
-    
-def predict_video(model_path = './model_10.h5', video_path = './data/test_videos/test5.mp4'):
-    resnet_model = ResnetFeatureMaps()
-    sequence_model = load_model(model_path)
-    
-    w2i, i2w, _ = wti_itw(path = caption_token_path)
-    cap = cv2.VideoCapture(video_path)
-    
+def window_config():
     font = cv2.FONT_HERSHEY_SIMPLEX
   
     # org
@@ -106,9 +95,48 @@ def predict_video(model_path = './model_10.h5', video_path = './data/test_videos
     # Red color in BGR
     color = (0, 0, 255)
   
-    # Line thickness of 2 px
     thickness = 2
+    return font, org, fontScale, color, thickness
+   
     
+def predict(model_path = './model_10.h5', data_path = './data/Flickr_Dataset/images/', save_path = 'data/results_image/', image_name = None):
+    #if(encoding_path not in os.listdir(os.getcwd())):
+    resnet_model = ResnetFeatureMaps()
+    sequence_model = load_model(model_path)
+    
+    image = cv2.imread(data_path)
+    w2i, i2w, _ = wti_itw(path = caption_token_path)
+    
+    image_plot = cv2.resize(image, (512, 256))
+    image = cv2.resize(image, (224,224))
+    preprocessed_frame = preprocess_image(input_image = image)
+    frame_encoding = get_encodings(resnet_model, preprocessed_frame).reshape(1,-1)
+    cap_predicted = predict_caption_image(sequence_model, w2i, i2w, frame_encoding)    
+    cap_array = np.zeros((128,512,3), dtype='uint8')
+    font, org, fontScale, color, thickness = window_config()
+    cap_image = cv2.putText(cap_array, (cap_predicted), org, font, fontScale, color, thickness, cv2.LINE_AA, False)
+    image_final = np.concatenate((image_plot, cap_image))
+    
+    cv2.imwrite(f'{save_path}/{image_name}',image_final)    
+    #cv2.namedWindow('captions', cv2.WINDOW_AUTOSIZE)
+    #cv2.imshow('images', image_final)
+    #cv2.waitKey(10)
+    #cv2.destroyAllWindows()
+    
+
+def cap_similarity(cap1, cap2):
+    cap1_vector = nlp(cap1).vector
+    cap2_vector = nlp(cap2).vector
+    return cosine_similarity([cap1_vector, cap2_vector])
+    
+def predict_video(model_path = './model_10.h5', video_path = './data/test_videos/test6.mp4', save_path = 'data/results_video/', video_name= None):
+    resnet_model = ResnetFeatureMaps()
+    sequence_model = load_model(model_path)
+    
+    w2i, i2w, _ = wti_itw(path = caption_token_path)
+    cap = cv2.VideoCapture(video_path)
+    
+    font, org, fontScale, color, thickness = window_config()
     captions = []
     if (cap.isOpened()== False):
         print("Error opening video stream or file")
@@ -142,6 +170,17 @@ def predict_video(model_path = './model_10.h5', video_path = './data/test_videos
             break
     cap.release()
     
+    #print(frames[0].shape)
+    #print((frames[0].shape[0],frames[0].shape[1]))
+    result = cv2.VideoWriter(f'{save_path}/{video_name}', 
+                         cv2.VideoWriter_fourcc(*'MJPG'),
+                         10, (frames[0].shape[1],frames[0].shape[0]))
+    
+    '''for frame in frames:
+        cv2.imshow('Frame', frame)
+        result.write(frame)
+        cv2.waitKey(50)
+    
     for caption,frame in zip(captions_audio, frames):
         if(captions_audio.index(caption) > 0 and captions_audio.index(caption) < len(captions_audio)):
             prev_caption = captions_audio[captions_audio.index(caption) - 1]
@@ -152,7 +191,7 @@ def predict_video(model_path = './model_10.h5', video_path = './data/test_videos
         cv2.waitKey(50)
             
 
-    cv2.destroyAllWindows()
+    cv2.destroyAllWindows()'''
 
 def play_audio(text = 'Hello there'):
     mp3_fp = '/tmp/temp.wav'
@@ -162,4 +201,3 @@ def play_audio(text = 'Hello there'):
     playsound.playsound(mp3_fp)
     os.remove(mp3_fp)
     
-predict_video()
