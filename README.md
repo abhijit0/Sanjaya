@@ -43,7 +43,6 @@ Automatic Video Captioning System. "Sanjaya" a character derived from the Mahabh
     3. if (similarity <= threshold ):
         - append caption to captions
     4. temp = caption
-    5. next frame available ? go to step 4 else break.
 
 Dataset:
 - Flickr8k dataset for training, validation, testing.
