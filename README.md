@@ -41,7 +41,7 @@ Automatic Video Captioning System. "Sanjaya" a character derived from the Mahabh
     1. Predict the caption for frame (caption)
     2. calculate cosine similarity between temp and predicted caption (similarity)
     3. if (similarity <= threshold ):
-      - append caption to captions
+        - append caption to captions
     4. temp = caption
 
 Dataset:
