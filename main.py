@@ -27,7 +27,7 @@ if __name__== '__main__':
             print(file_path)
             if(exists(file_path)):
                 predict_video(video_path=file_path, video_name = file_name)
-                print(f'Results have been saved in data/results_image folder')
+                print(f'Results have been saved in data/results_video folder')
             else:
                 raise FileNotFoundError 
     except(FileNotFoundError):
