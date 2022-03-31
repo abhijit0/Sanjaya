@@ -140,7 +140,8 @@ def predict_video(model_path = './model_10.h5', video_path = './data/test_videos
     captions = []
     if (cap.isOpened()== False):
         print("Error opening video stream or file")
-        
+    
+    threshold = 1.0    
     temp = ''
     frames = []
     captions = ['']
@@ -156,7 +157,7 @@ def predict_video(model_path = './model_10.h5', video_path = './data/test_videos
             cap_predicted = predict_caption_image(sequence_model, w2i, i2w, frame_encoding)
             similarity = cap_similarity(temp, cap_predicted)
             
-            if(similarity[0][1] < 0.75):
+            if(similarity[0][1] <= threshold):
                 captions.append(cap_predicted)
             
             cap_array = np.zeros((128,512,3), dtype='uint8')
@@ -172,16 +173,16 @@ def predict_video(model_path = './model_10.h5', video_path = './data/test_videos
     
     #print(frames[0].shape)
     #print((frames[0].shape[0],frames[0].shape[1]))
-    result = cv2.VideoWriter(f'{save_path}/{video_name}', 
+    result = cv2.VideoWriter(f'{save_path}/{video_name[:-4]}.avi', 
                          cv2.VideoWriter_fourcc(*'MJPG'),
                          10, (frames[0].shape[1],frames[0].shape[0]))
     
-    '''for frame in frames:
-        cv2.imshow('Frame', frame)
+    for frame in frames:
+        #cv2.imshow('Frame', frame)
         result.write(frame)
-        cv2.waitKey(50)
+        cv2.waitKey(30)
     
-    for caption,frame in zip(captions_audio, frames):
+    '''for caption,frame in zip(captions_audio, frames):
         if(captions_audio.index(caption) > 0 and captions_audio.index(caption) < len(captions_audio)):
             prev_caption = captions_audio[captions_audio.index(caption) - 1]
             if(caption != prev_caption):
