@@ -38,6 +38,8 @@ Automatic Video Captioning System. "Sanjaya" a mythological character derived fr
 ## Data Set
 - The dataset is Flickr8k dataset which contains 8000 out of which 6000 images are used for training and the rest for testing and validation.
 - The training dataset also contains a caption dictionary where each of images are paired with caption list containing varying number of captions.
+- The dataset is available in the following link
+    - https://www.kaggle.com/datasets/adityajn105/flickr8k
 
 ## Preprocessing
 - The images are preprocessed such that each color channel is zero-centered with respect to the ImageNet dataset, without scaling along with converting from RGB to BGR. This step is applied for both training and testing.
