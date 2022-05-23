@@ -2,7 +2,11 @@
 ```
 Tensorflow > 2.x
 python > 3.6
-
+opencv-python
+cudatoolkit ## Which is suitable for your nvida gpu and tensorflow, python version installed
+spacy
+scipy
+matplotlib
 ```
 
 ## How to Run?
