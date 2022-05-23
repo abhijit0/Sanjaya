@@ -6,13 +6,13 @@ python > 3.6
 ```
 
 ## How to Run?
-- For Video
+- For Video: place the test video in data/test_videos/ directory and run the following command.
 ```
-python3 main.py --video test4.mp4
+python3 main.py --video $video_file_name
 ```
-- For Image 
+- For Image: place the test video in data/test_iamges/ directory and run the following command.
 ```
-python3 main.py --video test4.mp4
+python3 main.py --image $image_file_name
 ```
 
 
@@ -35,9 +35,13 @@ Automatic Video Captioning System. "Sanjaya" a character derived from the Mahabh
 - The training dataset also contains a caption dictionary where each of images are paired with caption list containing varying number of captions.
 
 ## Preprocessing
-- The images are preprocessed such that each color channel is zero-centered with respect to the ImageNet dataset, without scaling along with converting from RGB to BGR.
-- The captions are preprocessed in many steps namely:
-    -  
+- The images are preprocessed such that each color channel is zero-centered with respect to the ImageNet dataset, without scaling along with converting from RGB to BGR. This step is applied for both training and testing.
+- The captions are preprocessed only in training phase:
+    - All the letters are converted to lowercase, special characters are removed
+    - Each caption is tokenized and padded with the tokens 'startseq' and 'endseq' for processing for LSTMs.
+    - The tokens are replaced with their word embeddings from glove_6B_50d word embeddings.
+    - The word embeddings are used instead of one hot encodings or direct indices becuase they encode semantic meanings which result in better accuracy.
+    
 
 ## Image caption architecture
 
