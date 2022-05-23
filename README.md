@@ -89,10 +89,6 @@ Automatic Video Captioning System. "Sanjaya" a character derived from the Mahabh
 ## Results
 
 ### Videos
-https://user-images.githubusercontent.com/17523822/169295455-95c1b282-65b1-434c-8b51-70260855daaf.mp4
-
-
-
 
 https://user-images.githubusercontent.com/17523822/169861561-ee37ca53-ffd3-493c-aac6-08dcd4a0ee5f.mp4
 
@@ -104,6 +100,8 @@ https://user-images.githubusercontent.com/17523822/169861570-8f19d726-53cb-48bd-
 
 https://user-images.githubusercontent.com/17523822/169861573-fa1da031-2b51-43ba-8dfc-096ce318a28d.mp4
 
+
+https://user-images.githubusercontent.com/17523822/169295455-95c1b282-65b1-434c-8b51-70260855daaf.mp4
 
 
 https://user-images.githubusercontent.com/17523822/169861574-4392e77a-09e5-49f3-bffc-2a0d0b38f96f.mp4
