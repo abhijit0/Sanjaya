@@ -126,5 +126,5 @@ https://user-images.githubusercontent.com/17523822/169861579-64883620-b819-4650-
 - Although results are not entirely accurate, they are semantically somehow closer to actual depiction of scenes
 - The model is relatively simple (Single LSTM layer with 256 units) for language modelling also the dataset is not sufficient enough to cover all types of scenarios
 - Aim of the project was to formulate a general idea on how a video captioning bot can be built using already available Image captioning models for efficiency.
-- However, there is always room for improvement. I will be continously working on imrpving the bot. I alo welcome anyone interested to contribute to this project :) 
+- However, there is always room for improvement. I will be continously working on imrpoving the bot. I also welcome anyone interested to contribute to this project :) 
 
