@@ -17,6 +17,16 @@ Automatic Video Captioning System. "Sanjaya" a character derived from the Mahabh
 - On the contrary image caption data is relatively is to obtain and prepare.
 - So the main idea is to apply the method for image captioning to videos.
 
+## Backbone: Image Caption module using CNN and RNN
+- The backbone of the system is the Image captioning module
+- The Image captioning module is developed using Resnet18 (CNN) which acts as feature extractor for images, and LSTMs which are used for language modelling.
+- Combining these two components, the resulting networks learns to encode images with their linguistic charecterstics which in our case is caption.
+
+## Image caption architecture
+
+![SAR jpg](https://user-images.githubusercontent.com/17523822/169815791-65484765-e4c4-480f-8bb9-ccc5659225a6.jpg)
+
+
 ## Challenges
 - If we directly apply Image captioning method for each frame, there will be inconsistancy in the outputs for each frame.
 - i.e We get different outputs for each frame, although the scene for consecutive frames is similar
