@@ -6,8 +6,14 @@ python > 3.6
 ```
 
 ## How to Run?
-
-
+- For Video
+```
+python3 main.py --video test4.mp4
+```
+- For Image 
+```
+python3 main.py --video test4.mp4
+```
 ## Overview 
 Automatic Video Captioning System. "Sanjaya" a character derived from the Mahabharat, who used to describe the war happening in kuruskhetra (battlefield) to Dhritarashtra, a blind emperor. Inspired by the character, this proejct is aimed at content based audio captions generation from videos in real time to aid blind people to understand the content of the video. 
 
