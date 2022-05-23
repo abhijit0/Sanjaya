@@ -21,7 +21,7 @@ python3 main.py --image $image_file_name
 
 
 ## Overview 
-Automatic Video Captioning System. "Sanjaya" a mythological character derived from the Mahabharat, who used to describe the war in kuruskhetra (battlefield) to Dhritarashtra, a blind emperor. Inspired by the character, this proejct is aimed at content based audio captions generation for the videos to aid blind people to understand the content of the video. 
+Automatic Video Captioning System. "Sanjaya" a mythological character derived from the Mahabharat, who used to describe the war in kuruskhetra (battlefield) to Dhritarashtra, a blind emperor. Inspired by the character, this proejct is aimed at content based audio captions generation for the videos to aid blind people to understand the content of the video. Currently, The captions are displayed which actually contradicts to the aim of the project. However, the captions will be outputed as speech which will be implemented and will reflect in future commits.
 
 ## General Idea:
 - Image caption method extended to videos.
