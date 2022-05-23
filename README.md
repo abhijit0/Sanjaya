@@ -14,6 +14,8 @@ python3 main.py --video test4.mp4
 ```
 python3 main.py --video test4.mp4
 ```
+
+
 ## Overview 
 Automatic Video Captioning System. "Sanjaya" a character derived from the Mahabharat, who used to describe the war happening in kuruskhetra (battlefield) to Dhritarashtra, a blind emperor. Inspired by the character, this proejct is aimed at content based audio captions generation from videos in real time to aid blind people to understand the content of the video. 
 
@@ -28,9 +30,21 @@ Automatic Video Captioning System. "Sanjaya" a character derived from the Mahabh
 - The Image captioning module is developed using Resnet18 (CNN) which acts as feature extractor for images, and LSTMs which are used for language modelling.
 - Combining these two components, the resulting networks learns to encode images with their linguistic charecterstics which in our case is caption.
 
+## Data Set
+- The dataset is Flickr8k dataset which contains 8000 out of which 6000 images are used for training and the rest for testing and validation.
+- The training dataset also contains a caption dictionary where each of images are paired with caption list containing varying number of captions.
+
+## Preprocessing
+- The images are preprocessed such that each color channel is zero-centered with respect to the ImageNet dataset, without scaling along with converting from RGB to BGR.
+- The captions are preprocessed in many steps namely:
+    -  
+
 ## Image caption architecture
 
 ![SAR jpg](https://user-images.githubusercontent.com/17523822/169815791-65484765-e4c4-480f-8bb9-ccc5659225a6.jpg)
+
+- The input image is fed to feature extractor which produces feature maps
+- 
 
 
 ## Challenges
