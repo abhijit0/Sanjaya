@@ -126,7 +126,7 @@ https://user-images.githubusercontent.com/17523822/169861579-64883620-b819-4650-
 
 ## Conclusion and Future Work
 - Although results are not entirely accurate, they are semantically somehow closer to actual depiction of scenes
-- Teh Final Output is Audio and not the captions, captions are just for demo purpose. Work is in progress 
+- The Final Output is Audio and not the captions, captions are just for demo purpose. Work is in progress.
 - Need to Improve the accuracy by further training and finetuning on different datasets and by improving the model. 
 - Aim of the project was to formulate a general idea on how a video captioning bot can be built using already available Image captioning models for efficiency.
 - However, there is always room for improvement. I will be continously working on imrpoving the bot. I also welcome anyone interested to contribute to this project :) 
