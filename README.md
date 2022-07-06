@@ -27,7 +27,7 @@ Automatic Video Captioning System. "Sanjaya" a mythological character derived fr
 - Image caption method extended to videos.
 - Generally video captioning needs a considerably high amount of data annotated with captions. Preparing and gathering this data is time and storage exhaustive process.
 - Training the model using this approach would also be computationally expensive and time consuming.
-- On the contrary image caption data is relatively is to obtain and prepare.
+- On the contrary image caption data is relatively easy to obtain and prepare.
 - So the main idea is to apply the method for image captioning to videos.
 
 ## Backbone: Image Caption module using CNN and RNN
