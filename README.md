@@ -42,7 +42,7 @@ Automatic Video Captioning System. "Sanjaya" a mythological character derived fr
     - https://www.kaggle.com/datasets/adityajn105/flickr8k
 
 ## Preprocessing
-- The images are preprocessed such that each color channel is zero-centered with respect to the ImageNet dataset, without scaling along with converting from RGB to BGR. This step is applied for both training and testing.
+- The images are preprocessed such that each color channel is zero-centered with respect to the ImageNet dataset, without scaling along with converting from RGB to BGR (For open cv). This step is applied for both training and testing.
 - The captions are preprocessed only in training phase:
     - All the letters are converted to lowercase, special characters are removed
     - Each caption is tokenized and padded with the tokens 'startseq' and 'endseq' for processing for LSTMs.
