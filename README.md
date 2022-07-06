@@ -58,7 +58,7 @@ Automatic Video Captioning System. "Sanjaya" a mythological character derived fr
 - The feature extractor layer is then connected to dense FC (Fully Connected) layer containing 256 neurons.
 - We know that the training data set also contains a dictionary where we have list of captions for each image.
 - Each caption is fed as input to the network as sequence along with feature map of the image.
-- The LSTM module with 256 units leanrs to predict the next word given the sequence of words before it. Here we are feeding word embeddings for             better performance.
+- The LSTM module with 256 units learns to predict the next word given the sequence of words before it. Here we are feeding word embeddings for             better performance.
 - The outputs of both FC layer of feature extractor and LSTM are added. This layer has relu activation.
 - Finally we feed the combined output to another FC layer which will contain n number of neurons where n is the vocabulary size.
 - The final FC layer will be having softmax activation.
