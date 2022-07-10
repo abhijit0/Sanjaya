@@ -92,8 +92,3 @@ def train_e2e(epochs = 10, batch_size = 1, optimizer = 'adam', verbose = 0):
     
     model.fit_generator(data_generator, epochs = 10, steps_per_epoch = steps_per_epoch, verbose = verbose)
     model.save(f'model_{epochs}.h5')
-
-   
-#model = build_model_e2e()
-#print(model.summary())
-train(verbose=1)
