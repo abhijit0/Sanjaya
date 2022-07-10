@@ -26,33 +26,6 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.layers import Input, Dense, Dropout, Embedding, LSTM
 from tensorflow.keras.layers import add
-
-
-
-
-'''import numpy as np
-import matplotlib.pyplot as plt
-import keras
-import re
-import nltk
-from nltk.corpus import stopwords
-import string
-import json
-import collections
-from time import time
-import pickle
-from keras.applications.vgg16 import VGG16
-from keras.applications.resnet import ResNet50, preprocess_input, decode_predictions
-from keras.preprocessing import image
-from keras.models import Model, load_model
-from keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.utils import to_categorical
-from keras.layers import Input, Dense, Dropout, Embedding, LSTM
-from keras.layers.merge import add
-import os
-from keras import backend as K
-K.tensorflow_backend._get_available_gpus()'''
-
         
 def load_captions(captions_path = './data/Flickr_Dataset/Flickr_TextData/Flickr8k.token.txt'):
     with open(captions_path, 'r') as f:
@@ -181,36 +154,6 @@ def train_test_data_wfe(dataset_type = 'train', pkl_file_path = None, image_path
         return json.loads(str(map_text).replace("'", "\"")), map_image
     else:
         return map_image
-
-
-'''def train_test_data(dataset_type = 'train', pkl_file_path = None, image_path = './data/Flickr_Dataset/images/' , desc_path = './data/Flickr_Dataset/Flickr_TextData/Flickr_8k.trainImages.txt'):
-    descriptions_json = get_image_map()
-    train_map_text = {}
-    train_map_image ={}
-    count = 0
-    with open(desc_path, 'r') as f:
-        train_images = f.read().split("\n")[:-1]
-    for train_image in train_images:
-        train_map_text[train_image] = descriptions_json[train_image]
-    model = ResnetFeatureMaps()
-    if(pkl_file_path is None or pkl_file_path not in os.listdir(os.getcwd())):
-        for train_image in train_images:
-            img_path = image_path + train_image
-            img = preprocess_image(img_path)
-            encoded_image = get_encodings(model, img)
-            train_map_image[train_image] = encoded_image
-            count += 1
-        if(pkl_file_path is None):
-            if(dataset_type.lower() == 'train'):
-                pkl_file_path = 'train_images_encodings.pkl'
-            else:
-                pkl_file_path = 'test_images_encodings.pkl'
-        with open(pkl_file_path, 'wb') as pickle_file:
-            pickle.dump(train_map_image, pickle_file)
-    else:
-        with open(pkl_file_path, 'rb') as pkl_file:
-            train_map_image = pickle.load(pkl_file)
-    return json.loads(str(train_map_text).replace("'", "\"")), train_map_image'''
 
 def wti_itw(path = './data/Flickr_Dataset/Flickr_TextData/Flickr8k.token.txt'):
     start_idx = 1
